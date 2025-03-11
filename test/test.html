@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Wasm Starter</title>
+    <style>
+        h1,
+        footer>h3 {
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        #content {
+            min-height: 30px;
+        }
+    </style>
+    <script type="module">
+        import init, { add } from "../wasm/output/wasm.js"
+
+        function addTwo() {
+            const content = document.getElementById("content")
+            const left = document.getElementById("left").value
+            const right = document.getElementById("right").value
+            const result = add(left, right)
+            content.innerText = result
+        }
+
+        init().then(() => {
+            window.addTwo = addTwo
+        })
+    </script>
+</head>
+
+<body>
+    <h1>Rust Wasm Test</h1>
+    <div>
+        Left: <input id="left" type="number" value="1" />
+    </div>
+    <div>
+        Right: <input id="right" type="number" value="2" />
+    </div>
+    <button onclick="addTwo();">Add</button>
+    <h3 id="content"></h3>
+    <footer>
+        <h3>
+            <a href="https://github.com/Vincent-the-gamer/rust-wasm-starter" target="_blank">Rust Wasm Starter</a> |
+            <a href="https://github.com/Vincent-the-gamer/rust-wasm-starter/blob/main/LICENSE" target="_blank">MIT
+                Licensed</a>
+            | 2025-present @ Vincent-the-gamer
+        </h3>
+    </footer>
+</body>
+
+</html>
