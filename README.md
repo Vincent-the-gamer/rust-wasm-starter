@@ -55,6 +55,8 @@ init().then(() => {
 ### Test
 Run [dev commands](#dev), and then test in `test/test.html`.
 
+![test](.github/test.png)
+
 # Build
 ```shell
 cd wasm
